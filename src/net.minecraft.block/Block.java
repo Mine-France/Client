@@ -1345,7 +1345,7 @@ public class Block
         }
 
         public String func_150495_a()
-        {
+        {d
             return "dig." + this.field_150501_a;
         }
 
