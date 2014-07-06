@@ -12,6 +12,7 @@ import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -314,11 +315,38 @@ public class GuiIngame extends Gui
         {
             this.mc.mcProfiler.startSection("debug");
             GL11.glPushMatrix();
-            var8.drawStringWithShadow(Display.getTitle() + (" [" + this.mc.debug + "] " ), 2, 2, 16777215);
-            var8.drawStringWithShadow(this.mc.debugInfoRenders(), 2, 12, 16777215);
-            var8.drawStringWithShadow(this.mc.getEntityDebug(), 2, 22, 16777215);
+            String color = "§f";
+            
+            if (this.mc.debugFPS < 20)
+            {
+            	color = "§4";
+            }
+            else if (this.mc.debugFPS < 30)
+            {
+            	color = "§e";
+            }
+            else if (this.mc.debugFPS >= 30 && this.mc.debugFPS < 60)
+            {
+            	color = "§a";
+            }
+            else if (this.mc.debugFPS >= 60 && this.mc.debugFPS < 75)
+            {
+            	color = "§2";
+            }
+            else if (this.mc.debugFPS >= 75)
+            {
+            	color = "§b";
+            }
+            else
+            {
+            	
+            }
+            
+            var8.drawStringWithShadow(Display.getTitle() + (" [" + color + this.mc.debugFPS + "§r fps] " ), 2, 2, 16777215);
+            //var8.drawStringWithShadow(this.mc.debugInfoRenders(), 2, 12, 16777215); // 
+            var8.drawStringWithShadow(this.mc.getEntityDebug(), 2, 22, 16777215); // Entité + Particules
             var8.drawStringWithShadow(this.mc.debugInfoEntities(), 2, 32, 16777215);
-            var8.drawStringWithShadow(this.mc.getWorldProviderName(), 2, 42, 16777215);
+            //var8.drawStringWithShadow(this.mc.getWorldProviderName(), 2, 42, 16777215);
             long var38 = Runtime.getRuntime().maxMemory();
             long var40 = Runtime.getRuntime().totalMemory();
             long var39 = Runtime.getRuntime().freeMemory();
@@ -331,19 +359,43 @@ public class GuiIngame extends Gui
             var22 = MathHelper.floor_double(this.mc.thePlayer.posX);
             var23 = MathHelper.floor_double(this.mc.thePlayer.posY);
             int var24 = MathHelper.floor_double(this.mc.thePlayer.posZ);
-            this.drawString(var8, String.format("x: %.5f (§7§l%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posX), Integer.valueOf(var22), Integer.valueOf(var22 >> 4), Integer.valueOf(var22 & 15)}), 2, 64, 14737632);
-            this.drawString(var8, String.format("y: §7§l%.3f§r au niveau des pieds (%.3f au niveau des yeux)", new Object[] {Double.valueOf(this.mc.thePlayer.boundingBox.minY), Double.valueOf(this.mc.thePlayer.posY)}), 2, 72, 14737632);
-            this.drawString(var8, String.format("z: %.5f (§7§l%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posZ), Integer.valueOf(var24), Integer.valueOf(var24 >> 4), Integer.valueOf(var24 & 15)}), 2, 80, 14737632);
+            this.drawString(var8, String.format("x: %.5f (§8%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posX), Integer.valueOf(var22), Integer.valueOf(var22 >> 4), Integer.valueOf(var22 & 15)}), 2, 50, 14737632);
+            this.drawString(var8, String.format("y: §8%.3f§r au niveau des pieds (%.3f au niveau des yeux)", new Object[] {Double.valueOf(this.mc.thePlayer.boundingBox.minY), Double.valueOf(this.mc.thePlayer.posY)}), 2, 59, 14737632);
+            this.drawString(var8, String.format("z: %.5f (§8%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posZ), Integer.valueOf(var24), Integer.valueOf(var24 >> 4), Integer.valueOf(var24 & 15)}), 2, 68, 14737632);
             int var25 = MathHelper.floor_double((double)(this.mc.thePlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-            this.drawString(var8, "f: " + var25 + " (" + Direction.directions[var25] + ") / " + MathHelper.wrapAngleTo180_float(this.mc.thePlayer.rotationYaw), 2, 88, 14737632);
+            this.drawString(var8, "Face: " + var25 + " (" + Direction.directions[var25] + ") / " + MathHelper.wrapAngleTo180_float(this.mc.thePlayer.rotationYaw), 2, 88, 14737632);
 
             if (this.mc.theWorld != null && this.mc.theWorld.blockExists(var22, var23, var24))
             {
                 Chunk var26 = this.mc.theWorld.getChunkFromBlockCoords(var22, var24);
-                this.drawString(var8, "lc: " + (var26.getTopFilledSegment() + 15) + " b: " + var26.getBiomeGenForWorldCoords(var22 & 15, var24 & 15, this.mc.theWorld.getWorldChunkManager()).biomeName + " bl: " + var26.getSavedLightValue(EnumSkyBlock.Block, var22 & 15, var23, var24 & 15) + " sl: " + var26.getSavedLightValue(EnumSkyBlock.Sky, var22 & 15, var23, var24 & 15) + " rl: " + var26.getBlockLightValue(var22 & 15, var23, var24 & 15, 0), 2, 96, 14737632);
+                this.drawString(var8,"Biome: " + var26.getBiomeGenForWorldCoords(var22 & 15, var24 & 15, this.mc.theWorld.getWorldChunkManager()).biomeName, 2, 97, 14737632);
+                
+                String color1 = "";
+                String color2 = "";
+                
+                if (var26.getSavedLightValue(EnumSkyBlock.Block, var22 & 15, var23, var24 & 15) <= 7)
+                {
+                	color1 = "§c";
+                }
+                else
+                {
+                	color1 = "§a";
+                }
+                	
+                if (var26.getSavedLightValue(EnumSkyBlock.Sky, var22 & 15, var23, var24 & 15) <= 7)
+                {
+                	color2 = "§c";
+                }
+                else
+                {
+                	color2 = "§a";
+                } 
+                
+                this.drawString(var8,"Luminosité (artificielle): " + color1 + var26.getSavedLightValue(EnumSkyBlock.Block, var22 & 15, var23, var24 & 15), 2, 106, 14737632);
+                this.drawString(var8,"Luminosité (naturelle): " + color2 + var26.getSavedLightValue(EnumSkyBlock.Sky, var22 & 15, var23, var24 & 15), 2, 115, 14737632);
             }
 
-            this.drawString(var8, String.format("ws: %.3f, fs: %.3f, g: %b, fl: %d", new Object[] {Float.valueOf(this.mc.thePlayer.capabilities.getWalkSpeed()), Float.valueOf(this.mc.thePlayer.capabilities.getFlySpeed()), Boolean.valueOf(this.mc.thePlayer.onGround), Integer.valueOf(this.mc.theWorld.getHeightValue(var22, var24))}), 2, 104, 14737632);
+            //this.drawString(var8, String.format("ws: %.3f, fs: %.3f, g: %b, fl: %d", new Object[] {Float.valueOf(this.mc.thePlayer.capabilities.getWalkSpeed()), Float.valueOf(this.mc.thePlayer.capabilities.getFlySpeed()), Boolean.valueOf(this.mc.thePlayer.onGround), Integer.valueOf(this.mc.theWorld.getHeightValue(var22, var24))}), 2, 104, 14737632);
 
             if (this.mc.entityRenderer != null && this.mc.entityRenderer.isShaderActive())
             {
