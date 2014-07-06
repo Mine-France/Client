@@ -1354,7 +1354,7 @@ public class Block
             return "step." + this.field_150501_a;
         }
 
-        public String func_150496_b()
+        public String func_150496_b()d
         {
             return this.func_150495_a();
         }
