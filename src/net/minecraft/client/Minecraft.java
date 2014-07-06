@@ -237,7 +237,7 @@ public class Minecraft implements IPlayerUsage
      * This is set to fpsCounter every debug screen update, and is shown on the debug screen. It's also sent as part of
      * the usage snooping.
      */
-    private static int debugFPS;
+    public static int debugFPS;
 
     /**
      * When you place a block, it's set to 6, decremented once per tick, when it's 0, you can place another block.
@@ -469,7 +469,7 @@ public class Minecraft implements IPlayerUsage
         }
 
         Display.setResizable(true);
-        Display.setTitle("Mine-France 1.0");
+        Display.setTitle("Mine-France 1.0"); /* TODO: A changer après chaque update ! */
         logger.info("LWJGL Version: " + Sys.getVersion());
         Util.EnumOS var1 = Util.getOSType();
 
@@ -1258,8 +1258,8 @@ public class Minecraft implements IPlayerUsage
                 var5.addVertex((double)var7, (double)var8, 0.0D);
                 int var14;
                 float var15;
-                float var16;
                 float var17;
+                float var16;
 
                 for (var14 = var13; var14 >= 0; --var14)
                 {
@@ -1286,27 +1286,27 @@ public class Minecraft implements IPlayerUsage
                 var9 += var12.field_76332_a;
             }
 
-            DecimalFormat var18 = new DecimalFormat("##0.00");
+            DecimalFormat var19 = new DecimalFormat("##0.00");
             GL11.glEnable(GL11.GL_TEXTURE_2D);
-            String var19 = "";
+            String var18 = "";
 
             if (!var4.field_76331_c.equals("unspecified"))
             {
-                var19 = var19 + "[0] ";
+                var18 = var18 + "[0] ";
             }
 
             if (var4.field_76331_c.length() == 0)
             {
-                var19 = var19 + "ROOT ";
+                var18 = var18 + "ROOT ";
             }
             else
             {
-                var19 = var19 + var4.field_76331_c + " ";
+                var18 = var18 + var4.field_76331_c + " ";
             }
 
             var13 = 16777215;
-            this.fontRenderer.drawStringWithShadow(var19, var7 - var6, var8 - var6 / 2 - 16, var13);
-            this.fontRenderer.drawStringWithShadow(var19 = var18.format(var4.field_76330_b) + "%", var7 + var6 - this.fontRenderer.getStringWidth(var19), var8 - var6 / 2 - 16, var13);
+            this.fontRenderer.drawStringWithShadow(var18, var7 - var6, var8 - var6 / 2 - 16, var13);
+            this.fontRenderer.drawStringWithShadow(var18 = var19.format(var4.field_76330_b) + "%", var7 + var6 - this.fontRenderer.getStringWidth(var18), var8 - var6 / 2 - 16, var13);
 
             for (int var21 = 0; var21 < var3.size(); ++var21)
             {
@@ -1324,8 +1324,8 @@ public class Minecraft implements IPlayerUsage
 
                 var22 = var22 + var20.field_76331_c;
                 this.fontRenderer.drawStringWithShadow(var22, var7 - var6, var8 + var6 / 2 + var21 * 8 + 20, var20.func_76329_a());
-                this.fontRenderer.drawStringWithShadow(var22 = var18.format(var20.field_76332_a) + "%", var7 + var6 - 50 - this.fontRenderer.getStringWidth(var22), var8 + var6 / 2 + var21 * 8 + 20, var20.func_76329_a());
-                this.fontRenderer.drawStringWithShadow(var22 = var18.format(var20.field_76330_b) + "%", var7 + var6 - this.fontRenderer.getStringWidth(var22), var8 + var6 / 2 + var21 * 8 + 20, var20.func_76329_a());
+                this.fontRenderer.drawStringWithShadow(var22 = var19.format(var20.field_76332_a) + "%", var7 + var6 - 50 - this.fontRenderer.getStringWidth(var22), var8 + var6 / 2 + var21 * 8 + 20, var20.func_76329_a());
+                this.fontRenderer.drawStringWithShadow(var22 = var19.format(var20.field_76330_b) + "%", var7 + var6 - this.fontRenderer.getStringWidth(var22), var8 + var6 / 2 + var21 * 8 + 20, var20.func_76329_a());
             }
         }
     }
@@ -2303,7 +2303,7 @@ public class Minecraft implements IPlayerUsage
      */
     public String debugInfoEntities()
     {
-        return "P: " + this.effectRenderer.getStatistics() + ". T: " + this.theWorld.getDebugLoadedEntities();
+        return "Particules: " + this.effectRenderer.getStatistics() + ". " + this.theWorld.getDebugLoadedEntities();
     }
 
     public void setDimensionAndSpawnPlayer(int par1)
