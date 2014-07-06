@@ -1356,7 +1356,7 @@ public class Block
 
         public String func_150496_b()
         {
-            return this.func_150495_a();
+            return this.func_150495_a()
         }
     }
 }
