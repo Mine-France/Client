@@ -273,17 +273,6 @@ public class Item
         itemRegistry.addObject(6002, "cinabre", (new Item()).setUnlocalizedName("cinabre").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("cinabre"));
         itemRegistry.addObject(6003, "bournonite_ingot", (new Item()).setUnlocalizedName("bournonite_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("bournonite_ingot"));
         itemRegistry.addObject(6004, "azurite", (new Item()).setUnlocalizedName("azurite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("azurite"));
-       
-        itemRegistry.addObject(6011, "bornite_helmet", (new ItemArmor(ItemArmor.ArmorMaterial.PARADIS, 5, 0)).setUnlocalizedName("bornite_helmet").setTextureName("bornite_helmet"));
-        itemRegistry.addObject(6012, "bornite_chestplate", (new ItemArmor(ItemArmor.ArmorMaterial.PARADIS, 5, 1)).setUnlocalizedName("bornite_chestplate").setTextureName("bornite_chestplate"));
-        itemRegistry.addObject(6013, "bornite_leggings", (new ItemArmor(ItemArmor.ArmorMaterial.PARADIS, 5, 2)).setUnlocalizedName("bornite_leggings").setTextureName("bornite_leggings"));
-        itemRegistry.addObject(6014, "bornite_boots", (new ItemArmor(ItemArmor.ArmorMaterial.PARADIS, 5, 3)).setUnlocalizedName("bornite_boots").setTextureName("bornite_boots"));
-        
-        itemRegistry.addObject(6015, "bornite_sword", (new ItemSword(Item.ToolMaterial.PARADIS)).setUnlocalizedName("bornite_sword").setTextureName("bornite_sword"));
-        itemRegistry.addObject(6016, "bornite_shovel", (new ItemSpade(Item.ToolMaterial.PARADIS)).setUnlocalizedName("bornite_shovel").setTextureName("bornite_shovel"));
-        itemRegistry.addObject(6017, "bornite_pickaxe", (new ItemPickaxe(Item.ToolMaterial.PARADIS)).setUnlocalizedName("bornite_pickaxe").setTextureName("bornite_pickaxe"));
-        itemRegistry.addObject(6018, "bornite_axe", (new ItemAxe(Item.ToolMaterial.PARADIS)).setUnlocalizedName("bornite_axe").setTextureName("bornite_axe"));
-        itemRegistry.addObject(6019, "bornite_hoe", (new ItemHoe(Item.ToolMaterial.PARADIS)).setUnlocalizedName("bornite_hoe").setTextureName("bornite_hoe"));
         //------------------------------------------------------------//
         
         HashSet var1 = Sets.newHashSet(new Block[] {Blocks.air, Blocks.brewing_stand, Blocks.bed, Blocks.nether_wart, Blocks.cauldron, Blocks.flower_pot, Blocks.wheat, Blocks.reeds, Blocks.cake, Blocks.skull, Blocks.piston_head, Blocks.piston_extension, Blocks.lit_redstone_ore, Blocks.powered_repeater, Blocks.pumpkin_stem, Blocks.standing_sign, Blocks.powered_comparator, Blocks.tripwire, Blocks.lit_redstone_lamp, Blocks.melon_stem, Blocks.unlit_redstone_torch, Blocks.unpowered_comparator, Blocks.redstone_wire, Blocks.wall_sign, Blocks.unpowered_repeater, Blocks.iron_door, Blocks.wooden_door});
@@ -930,7 +919,7 @@ public class Item
 
         public Item func_150995_f()
         {
-            return this == WOOD ? Item.getItemFromBlock(Blocks.planks) : (this == STONE ? Item.getItemFromBlock(Blocks.cobblestone) : (this == GOLD ? Items.gold_ingot : (this == IRON ? Items.iron_ingot : (this == EMERALD ? Items.diamond : (this == PARADIS ? Items.paradis_ingot : null)))));
+            return this == WOOD ? Item.getItemFromBlock(Blocks.planks) : (this == STONE ? Item.getItemFromBlock(Blocks.cobblestone) : (this == GOLD ? Items.gold_ingot : (this == IRON ? Items.iron_ingot : (this == EMERALD ? Items.diamond : null))));
         }
     }
 }
