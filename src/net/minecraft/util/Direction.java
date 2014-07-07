@@ -4,7 +4,7 @@ public class Direction
 {
     public static final int[] offsetX = new int[] {0, -1, 0, 1};
     public static final int[] offsetZ = new int[] {1, 0, -1, 0};
-    public static final String[] directions = new String[] {"§8SUD§r", "§8OUEST§r", "§8NORD§r", "§8EST§r"};
+    public static final String[] directions = new String[] {"§3SUD§r", "§3OUEST§r", "§3NORD§r", "§3EST§r"};
 
     /** Maps a Direction value (2D) to a Facing value (3D). */
     public static final int[] directionToFacing = new int[] {3, 4, 2, 5};
