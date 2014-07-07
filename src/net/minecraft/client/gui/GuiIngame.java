@@ -351,17 +351,17 @@ public class GuiIngame extends Gui
             long var40 = Runtime.getRuntime().totalMemory();
             long var39 = Runtime.getRuntime().freeMemory();
             long var46 = var40 - var39;
-            String var20 = "Mémoire utilisée: " + var46 * 100L / var38 + "% (" + var46 / 1024L / 1024L + "Mo) sur " + var38 / 1024L / 1024L + "Mo";
+            String var20 = "Mémoire utilisée: " + var46 * 100L / var38 + "% (§6" + var46 / 1024L / 1024L + "Mo§r) sur (§6" + var38 / 1024L / 1024L + "Mo§r)";
             var21 = 14737632;
             this.drawString(var8, var20, var6 - var8.getStringWidth(var20) - 2, 2, 14737632);
-            var20 = "Mémoire allouée: " + var40 * 100L / var38 + "% (" + var40 / 1024L / 1024L + "Mo)";
+            var20 = "Mémoire allouée: " + var40 * 100L / var38 + "% (§6" + var40 / 1024L / 1024L + "Mo§r)";
             this.drawString(var8, var20, var6 - var8.getStringWidth(var20) - 2, 12, 14737632);
             var22 = MathHelper.floor_double(this.mc.thePlayer.posX);
             var23 = MathHelper.floor_double(this.mc.thePlayer.posY);
             int var24 = MathHelper.floor_double(this.mc.thePlayer.posZ);
-            this.drawString(var8, String.format("x: %.5f (§8%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posX), Integer.valueOf(var22), Integer.valueOf(var22 >> 4), Integer.valueOf(var22 & 15)}), 2, 50, 14737632);
-            this.drawString(var8, String.format("y: §8%.3f§r au niveau des pieds (%.3f au niveau des yeux)", new Object[] {Double.valueOf(this.mc.thePlayer.boundingBox.minY), Double.valueOf(this.mc.thePlayer.posY)}), 2, 59, 14737632);
-            this.drawString(var8, String.format("z: %.5f (§8%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posZ), Integer.valueOf(var24), Integer.valueOf(var24 >> 4), Integer.valueOf(var24 & 15)}), 2, 68, 14737632);
+            this.drawString(var8, String.format("[§ax§r] : %.5f (§e%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posX), Integer.valueOf(var22), Integer.valueOf(var22 >> 4), Integer.valueOf(var22 & 15)}), 2, 50, 14737632);
+            this.drawString(var8, String.format("[§ay§r] : §e%.3f§r au niveau des pieds (§e%.3f§r au niveau des yeux)", new Object[] {Double.valueOf(this.mc.thePlayer.boundingBox.minY), Double.valueOf(this.mc.thePlayer.posY)}), 2, 59, 14737632);
+            this.drawString(var8, String.format("[§az§r] : %.5f (§e%d§r) // c: %d (%d)", new Object[] {Double.valueOf(this.mc.thePlayer.posZ), Integer.valueOf(var24), Integer.valueOf(var24 >> 4), Integer.valueOf(var24 & 15)}), 2, 68, 14737632);
             int var25 = MathHelper.floor_double((double)(this.mc.thePlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
             this.drawString(var8, "Face: " + var25 + " (" + Direction.directions[var25] + ") / " + MathHelper.wrapAngleTo180_float(this.mc.thePlayer.rotationYaw), 2, 88, 14737632);
 
