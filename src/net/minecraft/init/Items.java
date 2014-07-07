@@ -185,18 +185,11 @@ public class Items
     public static final Item record_wait = (Item)Item.itemRegistry.getObject("record_wait");
     
     //------------------------------------------------------------//
-    public static final Item paradis_ingot = (Item)Item.itemRegistry.getObject("paradis_ingot");
-    
-    public static final ItemArmor paradis_helmet = (ItemArmor)Item.itemRegistry.getObject("paradis_helmet");
-    public static final ItemArmor paradis_chestplate = (ItemArmor)Item.itemRegistry.getObject("paradis_chestplate");
-    public static final ItemArmor paradis_leggings = (ItemArmor)Item.itemRegistry.getObject("paradis_leggings");
-    public static final ItemArmor paradis_boots = (ItemArmor)Item.itemRegistry.getObject("paradis_boots");
-    
-    public static final Item paradis_sword = (Item)Item.itemRegistry.getObject("paradis_sword");
-    public static final Item paradis_shovel = (Item)Item.itemRegistry.getObject("paradis_shovel");
-    public static final Item paradis_pickaxe = (Item)Item.itemRegistry.getObject("paradis_pickaxe");
-    public static final Item paradis_axe = (Item)Item.itemRegistry.getObject("paradis_axe");
-    public static final Item paradis_hoe = (Item)Item.itemRegistry.getObject("paradis_hoe");
+    public static final Item argent_ingot = (Item)Item.itemRegistry.getObject("argent_ingot");
+    public static final Item cuivre_ingot = (Item)Item.itemRegistry.getObject("cuivre_ingot");
+    public static final Item cinabre = (Item)Item.itemRegistry.getObject("cinabre");
+    public static final Item bournonite_ingot = (Item)Item.itemRegistry.getObject("bournonite_ingot");
+    public static final Item azurite = (Item)Item.itemRegistry.getObject("azurite");
     //------------------------------------------------------------//
     
     private static final String __OBFID = "CL_00000044";
