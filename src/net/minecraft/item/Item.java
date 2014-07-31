@@ -135,7 +135,7 @@ public class Item
         itemRegistry.addObject(294, "golden_hoe", (new ItemHoe(Item.ToolMaterial.GOLD)).setUnlocalizedName("hoeGold").setTextureName("gold_hoe"));
         itemRegistry.addObject(295, "wheat_seeds", (new ItemSeeds(Blocks.wheat, Blocks.farmland)).setUnlocalizedName("seeds").setTextureName("seeds_wheat"));
         itemRegistry.addObject(296, "wheat", (new Item()).setUnlocalizedName("wheat").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("wheat"));
-        itemRegistry.addObject(297, "bread", (new ItemFood(5, 0.6F, false)).setUnlocalizedName("bread").setTextureName("bread"));
+        itemRegistry.addObject(297, "bread", (new ItemFood(4, 0.6F, false)).setUnlocalizedName("bread").setTextureName("bread"));
         itemRegistry.addObject(298, "leather_helmet", (new ItemArmor(ItemArmor.ArmorMaterial.CLOTH, 0, 0)).setUnlocalizedName("helmetCloth").setTextureName("leather_helmet"));
         itemRegistry.addObject(299, "leather_chestplate", (new ItemArmor(ItemArmor.ArmorMaterial.CLOTH, 0, 1)).setUnlocalizedName("chestplateCloth").setTextureName("leather_chestplate"));
         itemRegistry.addObject(300, "leather_leggings", (new ItemArmor(ItemArmor.ArmorMaterial.CLOTH, 0, 2)).setUnlocalizedName("leggingsCloth").setTextureName("leather_leggings"));
@@ -268,11 +268,42 @@ public class Item
         itemRegistry.addObject(2267, "record_wait", (new ItemRecord("wait")).setUnlocalizedName("record").setTextureName("record_wait"));
         
         //------------------------------------------------------------//
-        itemRegistry.addObject(6000, "argent_ingot", (new Item()).setUnlocalizedName("argent_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("argent_ingot"));
-        itemRegistry.addObject(6001, "cuivre_ingot", (new Item()).setUnlocalizedName("cuivre_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("cuivre_ingot"));
-        itemRegistry.addObject(6002, "cinabre", (new Item()).setUnlocalizedName("cinabre").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("cinabre"));
-        itemRegistry.addObject(6003, "bournonite_ingot", (new Item()).setUnlocalizedName("bournonite_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("bournonite_ingot"));
-        itemRegistry.addObject(6004, "azurite", (new Item()).setUnlocalizedName("azurite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("azurite"));
+        itemRegistry.addObject(5000, "argent_ingot", (new Item()).setUnlocalizedName("argent_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("argent_ingot"));
+        itemRegistry.addObject(5001, "cuivre_ingot", (new Item()).setUnlocalizedName("cuivre_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("cuivre_ingot"));
+        itemRegistry.addObject(5002, "cinabre", (new Item()).setUnlocalizedName("cinabre").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("cinabre"));
+        itemRegistry.addObject(5003, "bournonite_ingot", (new Item()).setUnlocalizedName("bournonite_ingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("bournonite_ingot"));
+        itemRegistry.addObject(5004, "azurite", (new Item()).setUnlocalizedName("azurite").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("azurite"));
+      //  itemRegistry.addObject(5005, "purse_bag", (new Item()).setUnlocalizedName("purse_bag").setCreativeTab(CreativeTabs.tabMaterials).setTextureName("purse_bag"));
+        itemRegistry.addObject(5005, "purse_bag_empty", (new Item()).setMaxStackSize(16).setUnlocalizedName("purse_bag_empty").setTextureName("purse_bag_empty").setCreativeTab(CreativeTabs.tabMaterials));
+        itemRegistry.addObject(5006, "purse_bag_8s", (new ItemPurseBag8S()).setMaxStackSize(4).setUnlocalizedName("purse_bag_8s").setTextureName("purse_bag_silver"));
+        itemRegistry.addObject(5007, "purse_bag_16s", (new ItemPurseBag16S()).setMaxStackSize(4).setUnlocalizedName("purse_bag_16s").setTextureName("purse_bag_silver"));
+        itemRegistry.addObject(5008, "purse_bag_24s", (new ItemPurseBag24S()).setMaxStackSize(4).setUnlocalizedName("purse_bag_24s").setTextureName("purse_bag_silver"));
+        itemRegistry.addObject(5009, "purse_bag_32s", (new ItemPurseBag32S()).setMaxStackSize(4).setUnlocalizedName("purse_bag_32s").setTextureName("purse_bag_silver"));
+        itemRegistry.addObject(5010, "purse_bag_8g", (new ItemPurseBag8G()).setMaxStackSize(4).setUnlocalizedName("purse_bag_8g").setTextureName("purse_bag_gold"));
+        itemRegistry.addObject(5011, "purse_bag_16g", (new ItemPurseBag16G()).setMaxStackSize(4).setUnlocalizedName("purse_bag_16g").setTextureName("purse_bag_gold"));
+        itemRegistry.addObject(5012, "purse_bag_24g", (new ItemPurseBag24G()).setMaxStackSize(4).setUnlocalizedName("purse_bag_24g").setTextureName("purse_bag_gold"));
+        itemRegistry.addObject(5013, "purse_bag_32g", (new ItemPurseBag32G()).setMaxStackSize(4).setUnlocalizedName("purse_bag_32g").setTextureName("purse_bag_gold"));
+        itemRegistry.addObject(5014, "coin_gold", (new Item()).setMaxStackSize(32).setUnlocalizedName("coin_gold").setTextureName("coin_gold").setCreativeTab(CreativeTabs.tabMaterials));
+        itemRegistry.addObject(5015, "coin_silver", (new Item()).setMaxStackSize(32).setUnlocalizedName("coin_silver").setTextureName("coin_silver").setCreativeTab(CreativeTabs.tabMaterials));
+
+        itemRegistry.addObject(5100, "bread_dough", (new ItemFood(2, 0.6F, false)).setUnlocalizedName("bread_dough").setTextureName("bread_dough"));
+        itemRegistry.addObject(5101, "gold_bread", (new ItemFood(6, 0.6F, false)).setUnlocalizedName("gold_bread").setTextureName("gold_bread"));
+        itemRegistry.addObject(5102, "slice_bread", (new ItemFood(2, 0.6F, false)).setUnlocalizedName("slice_bread").setTextureName("slice_bread"));
+        itemRegistry.addObject(5103, "sandwich_cheese", (new ItemFood(10, 0.6F, false)).setUnlocalizedName("sandwich_cheese").setTextureName("sandwich_cheese"));
+        itemRegistry.addObject(5104, "sandwich_chicken", (new ItemFood(12, 0.6F, false)).setUnlocalizedName("sandwich_chicken").setTextureName("sandwich_chicken"));
+        itemRegistry.addObject(5105, "sandwich_bacon", (new ItemFood(10, 0.6F, false)).setUnlocalizedName("sandwich_bacon").setTextureName("sandwich_bacon"));
+        itemRegistry.addObject(5106, "sandwich_ham", (new ItemFood(10, 0.6F, false)).setUnlocalizedName("sandwich_ham").setTextureName("sandwich_ham"));
+        itemRegistry.addObject(5107, "sandwich_fish", (new ItemFood(12, 0.6F, false)).setUnlocalizedName("sandwich_fish").setTextureName("sandwich_fish"));
+        itemRegistry.addObject(5108, "bucket_cheese", (new Item()).setUnlocalizedName("bucket_cheese").setCreativeTab(CreativeTabs.tabMisc).setTextureName("bucket_cheese"));
+        itemRegistry.addObject(5109, "cheese", (new ItemFood(4, 0.6F, false)).setUnlocalizedName("cheese").setTextureName("cheese"));
+        itemRegistry.addObject(5110, "raw_bacon", (new ItemFood(1, 0.6F, false)).setUnlocalizedName("raw_bacon").setTextureName("raw_bacon"));
+        itemRegistry.addObject(5111, "cooked_bacon", (new ItemFood(3, 0.6F, false)).setUnlocalizedName("cooked_bacon").setTextureName("cooked_bacon"));
+        itemRegistry.addObject(5112, "fish_soup", (new ItemSoup(6)).setUnlocalizedName("fish_soup").setTextureName("fish_soup"));
+        itemRegistry.addObject(5113, "pumpkin_soup", (new ItemSoup(6)).setUnlocalizedName("pumpkin_soup").setTextureName("pumpkin_soup"));
+        itemRegistry.addObject(5114, "vegetable_soup", (new ItemSoup(6)).setUnlocalizedName("vegetable_soup").setTextureName("vegetable_soup"));
+        itemRegistry.addObject(5115, "seed_soup", (new ItemSoup(6)).setUnlocalizedName("seed_soup").setTextureName("seed_soup"));
+        itemRegistry.addObject(5116, "skewered_meat", (new ItemFood(11, 0.6F, false)).setUnlocalizedName("skewered_meat").setTextureName("skewered_meat"));
+        itemRegistry.addObject(5117, "mashed_potato", (new ItemFood(13, 0.6F, false)).setUnlocalizedName("mashed_potato").setTextureName("mashed_potato"));
         //------------------------------------------------------------//
         
         HashSet var1 = Sets.newHashSet(new Block[] {Blocks.air, Blocks.brewing_stand, Blocks.bed, Blocks.nether_wart, Blocks.cauldron, Blocks.flower_pot, Blocks.wheat, Blocks.reeds, Blocks.cake, Blocks.skull, Blocks.piston_head, Blocks.piston_extension, Blocks.lit_redstone_ore, Blocks.powered_repeater, Blocks.pumpkin_stem, Blocks.standing_sign, Blocks.powered_comparator, Blocks.tripwire, Blocks.lit_redstone_lamp, Blocks.melon_stem, Blocks.unlit_redstone_torch, Blocks.unpowered_comparator, Blocks.redstone_wire, Blocks.wall_sign, Blocks.unpowered_repeater, Blocks.iron_door, Blocks.wooden_door});
